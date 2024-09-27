@@ -3,7 +3,7 @@ require('dotenv').config()
 const { MongoClient } = require("mongodb");
  
 // Replace the following with your Atlas connection string                                                                                                                                        
-const url = process.nextTick.MONGOKEY;
+const url = process.env.MONGOKEY;
 
 // Connect to your Atlas cluster
 const client = new MongoClient(url);
