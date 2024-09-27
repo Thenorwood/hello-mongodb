@@ -1,5 +1,21 @@
-S3_BUCKET="YOURS3BUCKET"
-SECRET_KEY="YOURSECRETKEYGOESHERE"
-
 require('dotenv').config()
-console.log(process.env) // remove this after you've confirmed it is working
+
+const { MongoClient } = require("mongodb");
+ 
+// Replace the following with your Atlas connection string                                                                                                                                        
+const url = process.nextTick.MONGOKEY;
+
+// Connect to your Atlas cluster
+const client = new MongoClient(url);
+async function run() {
+    try {
+        await client.connect();
+        console.log("Successfully connected to Atlas");
+    } catch (err) {
+        console.log(err.stack);
+    }
+    finally {
+        await client.close();
+    }
+}
+run().catch(console.dir);
